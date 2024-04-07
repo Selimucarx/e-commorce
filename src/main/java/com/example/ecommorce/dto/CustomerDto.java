@@ -1,5 +1,11 @@
 package com.example.ecommorce.dto;
 
-public record CustomerDto(String email,
-                          String password) {
+import java.util.Date;
+import java.util.UUID;
+
+public record CustomerDto(UUID id,
+                          Date createDate,
+                          String email,
+                          String password,
+                          UUID cartId) {
 }

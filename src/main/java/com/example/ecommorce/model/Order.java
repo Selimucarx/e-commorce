@@ -1,13 +1,13 @@
 package com.example.ecommorce.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -19,9 +19,18 @@ public class Order extends BaseEntity{
     @ManyToOne
     private Customer customer;
 
-    @ManyToOne
-    private Cart cart;
+    private BigDecimal totalPrice;
 
-    @OneToMany(mappedBy = "orders")
-    private List<Product> products;
+
+
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    private List<OrderItem> orderItems = new ArrayList<>();
+
+
+
+    public void addOrderItem(OrderItem orderItem) {
+        orderItems.add(orderItem);
+        orderItem.setOrder(this);
+    }
 }

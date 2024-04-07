@@ -4,5 +4,5 @@ import com.example.ecommorce.dto.CustomerDto;
 
 public interface CustomerService {
 
-    CustomerDto createCustomer(CustomerDto customerDto);
+    CustomerDto addCustomer(CustomerDto customerDto);
 }

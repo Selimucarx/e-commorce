@@ -7,9 +7,8 @@ import java.util.UUID;
 
 public interface ProductService {
     ProductDto createProduct(ProductDto productDto);
-    List<ProductDto> getProduct();
+    List<ProductDto> getAllProducts();
     ProductDto deleteProduct(UUID productId);
- //   ProductDto updateProduct(UUID productId, ProductDto productDto);
+    ProductDto updateProduct(UUID productId, ProductDto productDto);
 
-    // GUNCELLEME KODU EN SON YAPILACAK
 }

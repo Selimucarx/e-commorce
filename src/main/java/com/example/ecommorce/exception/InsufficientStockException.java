@@ -3,18 +3,17 @@ package com.example.ecommorce.exception;
 import com.example.ecommorce.model.ErrorMessageType;
 import org.springframework.http.HttpStatus;
 
-public class CustomerNotFoundException extends AbstractException{
-
-    public CustomerNotFoundException(ErrorMessageType errorMessageType) {
+public class InsufficientStockException extends AbstractException {
+    public InsufficientStockException(ErrorMessageType errorMessageType) {
         super(errorMessageType.getMessage());
     }
 
-    public CustomerNotFoundException(String message) {
+    public InsufficientStockException(String message) {
         super(message);
     }
 
     @Override
     HttpStatus getHttpStatus() {
-        return HttpStatus.NOT_FOUND;
+        return HttpStatus.BAD_REQUEST;
     }
 }

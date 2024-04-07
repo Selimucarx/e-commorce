@@ -1,0 +1,19 @@
+### SIPARIS OLUSTURMA
+POST http://localhost:8080/api/v1/orders/6705431d-7bfe-4ecb-8960-0e4f17068f5f
+Content-Type: application/json
+
+
+
+
+### CUSTOMERIN TUM SIPARISLERINI GETIRME
+GET http://localhost:8080/api/v1/orders/customer/6705431d-7bfe-4ecb-8960-0e4f17068f5f
+Content-Type: application/json
+
+
+
+### SIPARIS NO ILE GETIRME
+GET http://localhost:8080/api/v1/orders/ff6f6bc5-c7b7-4184-9213-67bc64b1f4ce
+Content-Type: application/json
+
+
+

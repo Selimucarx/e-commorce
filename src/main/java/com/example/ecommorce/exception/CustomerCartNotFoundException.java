@@ -3,13 +3,13 @@ package com.example.ecommorce.exception;
 import com.example.ecommorce.model.ErrorMessageType;
 import org.springframework.http.HttpStatus;
 
-public class CustomerNotFoundException extends AbstractException{
+public class CustomerCartNotFoundException extends AbstractException{
 
-    public CustomerNotFoundException(ErrorMessageType errorMessageType) {
+    public CustomerCartNotFoundException(ErrorMessageType errorMessageType) {
         super(errorMessageType.getMessage());
     }
 
-    public CustomerNotFoundException(String message) {
+    public CustomerCartNotFoundException(String message) {
         super(message);
     }
 
@@ -18,3 +18,5 @@ public class CustomerNotFoundException extends AbstractException{
         return HttpStatus.NOT_FOUND;
     }
 }
+
+

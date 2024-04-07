@@ -4,10 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -19,9 +18,10 @@ public class Cart extends BaseEntity{
     @OneToOne
     private Customer customer;
 
-    @OneToMany(mappedBy = "cart")
-    private List<Product> products;
+    @Column(nullable = false)
+    private BigDecimal totalPrice = BigDecimal.ZERO;
 
-    @OneToOne
-    private Order orders;
+    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<CartItem> cartItems = new ArrayList<>();
+
 }

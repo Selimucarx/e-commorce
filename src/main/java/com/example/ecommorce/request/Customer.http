@@ -2,6 +2,7 @@ POST http://localhost:8080/api/v1/customers/register
 Content-Type: application/json
 
 {
-  "email": "selim",
+  "email": "burak",
   "password": "1234"
 }
+

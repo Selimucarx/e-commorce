@@ -12,6 +12,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/v1/products")
 public class ProductController {
+
     private final ProductService productService;
 
     public ProductController(ProductService productService) {
@@ -19,31 +20,26 @@ public class ProductController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<ProductDto> createProduct(@RequestBody ProductDto productDto){
+    public ResponseEntity<ProductDto> createProduct(@RequestBody ProductDto productDto) {
         ProductDto createdProduct = productService.createProduct(productDto);
-        return new ResponseEntity<>(createdProduct, HttpStatus.CREATED);
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdProduct);
     }
 
     @GetMapping
-    public ResponseEntity<List<ProductDto>> getProduct(){
-        List<ProductDto> products = productService.getProduct();
+    public ResponseEntity<List<ProductDto>> getAllProducts() {
+        List<ProductDto> products = productService.getAllProducts();
         return ResponseEntity.ok(products);
     }
 
-
     @DeleteMapping("/{id}")
-    public ResponseEntity<ProductDto> deleteProduct(@PathVariable UUID id){
-        ProductDto deletedProduct = productService.deleteProduct(id);
-        return new ResponseEntity<>(deletedProduct, HttpStatus.NO_CONTENT);
+    public ResponseEntity<Void> deleteProduct(@PathVariable UUID id) {
+        productService.deleteProduct(id);
+        return ResponseEntity.noContent().build();
     }
 
-
-
-    /*
-    @PutMapping("/{id}")
-    public ResponseEntity<ProductDto> updateProduct(@PathVariable UUID id, @RequestBody ProductDto productDto){
-        ProductDto updatedProduct = productService.updateProduct(id,productDto);
-        return new ResponseEntity<>(updatedProduct, HttpStatus.OK);
+    @PatchMapping("/{id}")
+    public ResponseEntity<ProductDto> updateProduct(@PathVariable UUID id, @RequestBody ProductDto productDto) {
+        ProductDto updatedProduct = productService.updateProduct(id, productDto);
+        return ResponseEntity.ok(updatedProduct);
     }
-     */
 }

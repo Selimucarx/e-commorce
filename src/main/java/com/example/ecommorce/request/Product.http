@@ -4,9 +4,9 @@ Content-Type: application/json
 
 {
   "name": "Telefon",
-  "stock": 17,
-  "price": 15.25,
-  "description": "Samsung cep telefonu"
+  "stock": 20,
+  "price": 33.00,
+  "description": "Telefon"
 }
 
 
@@ -16,5 +16,16 @@ Content-Type: application/json
 
 
 ### PRODUCT SILME
-DELETE http://localhost:8080/api/v1/products/
+DELETE http://localhost:8080/api/v1/products/4243fb07-9b87-4158-ad93-711305d592e7
 Content-Type: application/json
+
+
+### URUNU GUNCELLE
+PATCH http://localhost:8080/api/v1/products/7fe91fd5-80e1-4510-91a5-d2d5c5429a2e
+Content-Type: application/json
+
+{
+  "stock": 50,
+  "price": 30.00
+}
+

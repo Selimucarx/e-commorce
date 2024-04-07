@@ -4,10 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
@@ -16,7 +13,6 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @Table(name = "products")
 public class Product extends BaseEntity{
-
     @Column(name = "product_name",length = 100,nullable = false)
     private String name;
     @Column(name = "product_stock",length = 100,nullable = false)
@@ -25,14 +21,4 @@ public class Product extends BaseEntity{
     private BigDecimal price;
     @Column(name = "product_description",length = 100,nullable = false)
     private String description;
-
-    @ManyToOne
-    private Order orders;
-
-    @ManyToOne
-    private Cart cart;
-
-
-
-
 }

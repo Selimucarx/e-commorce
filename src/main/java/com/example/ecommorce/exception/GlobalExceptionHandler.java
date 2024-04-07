@@ -19,7 +19,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
     @ExceptionHandler(CustomerNotFoundException.class)
-    public ResponseEntity<Object> handleUserNotFoundException(CustomerNotFoundException ex, WebRequest request) {
+    public ResponseEntity<Object> handleCustomerNotFoundException(CustomerNotFoundException ex, WebRequest request) {
         ErrorDto errorDto = new ErrorDto(
 
                 HttpStatus.NOT_FOUND.value(),
@@ -28,6 +28,56 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                 new Date()
         );
         return new ResponseEntity<>(errorDto, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(ProductNotFoundException.class)
+    public ResponseEntity<Object> handleProductNotFoundException(ProductNotFoundException ex, WebRequest request) {
+        ErrorDto errorDto = new ErrorDto(
+
+                HttpStatus.NOT_FOUND.value(),
+                HttpStatus.NOT_FOUND.getReasonPhrase(),
+                ErrorMessageType.CUSTOMER_NOT_FOUND.getMessage(),
+                new Date()
+        );
+        return new ResponseEntity<>(errorDto, HttpStatus.NOT_FOUND);
+    }
+
+
+    @ExceptionHandler(CustomerCartNotFoundException.class)
+    public ResponseEntity<Object> handleCustomerCartNotFoundException(CustomerCartNotFoundException ex, WebRequest request) {
+        ErrorDto errorDto = new ErrorDto(
+
+                HttpStatus.NOT_FOUND.value(),
+                HttpStatus.NOT_FOUND.getReasonPhrase(),
+                ErrorMessageType.CUSTOMER_NOT_FOUND.getMessage(),
+                new Date()
+        );
+        return new ResponseEntity<>(errorDto, HttpStatus.NOT_FOUND);
+    }
+
+
+    @ExceptionHandler(OrderNotFoundException.class)
+    public ResponseEntity<Object> handleOrderNotFoundException(OrderNotFoundException ex, WebRequest request) {
+        ErrorDto errorDto = new ErrorDto(
+
+                HttpStatus.NOT_FOUND.value(),
+                HttpStatus.NOT_FOUND.getReasonPhrase(),
+                ErrorMessageType.CUSTOMER_NOT_FOUND.getMessage(),
+                new Date()
+        );
+        return new ResponseEntity<>(errorDto, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(InsufficientStockException.class)
+    public ResponseEntity<Object> handleInsufficientStockException(InsufficientStockException ex, WebRequest request) {
+        ErrorDto errorDto = new ErrorDto(
+
+                HttpStatus.NOT_FOUND.value(),
+                HttpStatus.NOT_FOUND.getReasonPhrase(),
+                ErrorMessageType.CUSTOMER_NOT_FOUND.getMessage(),
+                new Date()
+        );
+        return new ResponseEntity<>(errorDto, HttpStatus.BAD_REQUEST);
     }
 
 

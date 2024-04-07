@@ -1,0 +1,28 @@
+POST http://localhost:8080/api/v1/carts/5c150fa2-b061-44b4-a05c-079ced13c589/addItem/9526511b-c130-4a42-a282-67bbb6d5c942
+Content-Type: application/json
+
+{
+  "quantity": 6
+}
+
+
+### Getirme
+GET http://localhost:8080/api/v1/carts/6705431d-7bfe-4ecb-8960-0e4f17068f5f
+
+
+
+### TUM SEPETI BOSAT
+DELETE http://localhost:8080/api/v1/carts/6705431d-7bfe-4ecb-8960-0e4f17068f5f/clearCart
+
+
+
+### SADECE 1 URUN CIKAR
+DELETE http://localhost:8080/api/v1/carts/5c150fa2-b061-44b4-a05c-079ced13c589/removeItem/0bc41250-b15b-444f-8931-b219e2b0db63
+
+### SEPET UPDATE
+PUT http://localhost:8080/api/v1/carts/5c150fa2-b061-44b4-a05c-079ced13c589/updateItem/9526511b-c130-4a42-a282-67bbb6d5c942
+Content-Type: application/json
+
+{
+  "quantity": 3
+}
